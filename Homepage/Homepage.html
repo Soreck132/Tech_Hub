@@ -12,8 +12,8 @@
 <body>
     <!-- NAVBAR -->
 
-    <header>
-        <div>
+    <header class="navbar">
+        <div class="logo">
             Tech Hub
         </div>
 
@@ -26,23 +26,25 @@
             <a href="#">Proyectos</a>
             <a href="#">Recursos</a>
         </nav>
+        <button class="btn-outline">Login</button>
     </header>
 
     <!-- HERO -->
 
-    <section>
-        <div>
+    <section class="hero">
+        <div class="hero-content">
 
             <h1>Aprende Tecnologia Desde Cero</h1>
             <p>
                 Domina SQL, REACT, Node.js, Power BI, Azure, Git, y Projects con rutas de aprendizaje, laboratorios y Proyectos reales.
             </p>
 
-            <div>
+            <div class="search-box">
+                <input type="text"placeholder="Buscar SQL, Power BI, Docker, React...">
                 <button>Buscar</button>
             </div>
 
-            <div>
+            <div class="stats">
                 <div><strong>600+</strong><span>Articulos</span></div>
                 <div><strong>150+</strong><span>Laboratorios</span></div>
                 <div><strong>80+</strong><span>Proyectos</span></div>
@@ -50,6 +52,91 @@
             </div>
     </div>
 </section>
+
+<!-- Categorias -->
+<section class="sections">
+    <h2>Categorias Populares</h2>
+    <div class="grid cat">
+        <div class="card"><h3>SQL</h3> <p>Consultas, Procedimientos, Indices y Rendimiento.</p></div>
+        <div class="card"><h3>Power BI</h3><p>DAX, Power Query y Dashboards profesionales</p></div>
+        <div class="card"><h3>Project Management</h3><p>Scrum, Kanban, PMP y Jira.</p></div>
+        <div class="card"><h3>React</h3><p>Componentes, hooks y aplicaciones modernas</p></div>
+        <div class="card"><h3>Node.js</h3><p>API´s REST, Express y Backend</p></div>
+        <div class="card"><h3>DevOps</h3><p>Git, Docker, CI/CD y Kubernetes</p></div>
+    </div>
+</section>
+
+<!-- Roadmaps -->
+ <section class="sections alt">
+    <h2>Roadmaps Recomendados</h2>
+    <div class="grid roadmaps"></div>
+
+        <div class="card roadmap-card">
+            <span class="badge">SQL</span>
+            <h3>SQL Developer</h3>
+            <p>De consultas basicas a optimización avanzada y administración.</p>
+            <a href="#">Ver Roadmap</a>
+        </div>
+        <div class="card roadmap-card">
+            <span class="badge">backend</span>
+            <h3>Backend Developer</h3>
+            <p>Node.js, APIs REST, autenticacion y despliegue en la nube.</p>
+            <a href="#">Ver Roadmap</a>
+        </div>
+        <div class="card roadmap-card">
+            <span class="badge">BI</span>
+            <h3>Power BI Developer</h3>
+            <p>Modelado de datos, DAX y visualización ejecutiva.</p>
+            <a href="#">Ver Roadmap</a>
+        </div>
+        <div class="card roadmap-card">
+            <span class="badge">PM</span>
+            <h3>Project Manager</h3>
+            <p>Scrum, Kanban, gestion de riesgos y stakeholders.</p>
+            <a href="#">Ver Roadmap</a>
+        </div>
+    </div>        
+ </section>
+
+ <!-- Aprende por rol -->
+  <section>
+    <h2>Aprende por rol</h2>
+        <span>Software Engineer</span>
+        <span>Data Analyst</span>
+        <span>BI Developer</span>
+        <span>Proyect Manager</span>
+        <span>DevOps Engineer</span>
+        <span>Cloud Engineer</span>
+  </section>
+
+ <!-- Cursos --> 
+  <section>
+    <h2>Cursos Recientes</h2>
+        <h3>SQL Intermedio</h3>
+        <p>JOINs, CTE´s, Funciones de ventana y rendimiento</p>
+        <button>Ver Curso</button>
+        <h3>Power BI Dashboard Profesional</h3>
+        <p>KPIs, segmentadores, diseño ejecutivo.</p>
+        <button>Ver Curso</button>
+        <h3>React desde cero</h3>
+        <p>Hooks, componentes y consumo de APIs</p>
+        <button>Ver Curso</button>
+  </section>
+<!-- Proyecto Destacado -->
+ <section>
+    <H2>Proyecto Destacado</H2>
+    <h3>Sistema de inventarios FullStack</h3>
+    <p>
+        Construye una aplicación real con React, Node.js, SQL Server y Power BI.
+        Incluye autenticación, API REST y dashboard ejecutivo
+    </p>
+    <button>Explorar Proyecto</button>
+    <div>React</div>
+    <div>Node.js</div>
+    <div>SQL Server</div>
+    <div>Power BI</div>
+ </section>
+
 <!-- Newsletter -->
 <section>
     <h2>Recibe una lección semanal</h2>
