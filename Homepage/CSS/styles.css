@@ -192,3 +192,128 @@ body{
     color: #2563eb;
     font-weight: 600;
 }
+
+/*roles*/
+.roles{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+}
+.roles span{
+    background: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid #e5e7eb;
+    font-weight: 500;
+
+}
+
+/*Buttons*/
+.btn-primary{
+    margin-top: 1rem;
+    padding: 0.8rem 1.2rem;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+/*Project*/
+.project{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+    align-items: center;
+}
+.project-stack{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1rem;
+}
+
+.project-stack div{
+    background: #111827;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 16px;
+    text-align: center;
+    font-weight: 600;
+
+}
+
+.newsletter{
+    padding: 4rem 2rem;
+    text-align: center;
+}
+.newsletter h2{
+    margin-bottom: 0.5rem;
+}
+.newsletter-form{
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+}
+.newsletter-form input{
+    padding: 1rem;
+    min-width: 280px;
+    border: 1px solid #d1d5db;
+    border-radius: 10px;
+
+}
+.newsletter-form button{
+    padding: 1rem 1.5rem;
+    border: none;
+    border-radius: 10px;
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+}
+footer{
+    background: #111827;
+    color: #e5e7eb;
+    padding: 3rem 2rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+    gap: 2rem;
+}
+.footer h3,.footer h4{
+    margin-bottom: 1rem;
+}
+.footer a {
+    display: block;
+    color: #cbd5e1;
+    text-decoration: none;
+    margin-bottom: 0.5rem;
+}
+.footer a:hover{
+    color: white;
+}
+/*Responsive*/
+
+@media(max-width:768px){
+    .navbar{
+        flex-direction: column;
+        gap: 1rem;
+    }
+    .navbar nav{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .hero h1{
+        font-size: 2.2rem;
+    }
+    .project{
+        grid-template-columns: 1fr;
+    }
+    .search-box{
+        flex-direction: 1fr;
+    }
+    .search-box button{
+        width: 100%;
+    }
+}
