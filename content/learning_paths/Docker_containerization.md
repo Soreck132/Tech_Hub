@@ -108,3 +108,100 @@ Using --help with any command or subcommand is a great way to learn how to use i
 | `docker rmi`          | Remove image                      |
 | `docker compose up`   | Start multi-container application |
 | `docker compose down` | Stop/remove Compose environment   |
+
+## 2.2 Create a Docker container
+
+--What is an image?
+A Docker image is like a packaged snapshot of your application that includes the app's source code, the operating system libraries, and all dependencies needed to run it. Think of it as a blueprint or template. When you run an image, Docker creates a container, which is a running instance of that image. This way, your app can run consistently across different environments without configuration issues
+
+Create a container from an image:
+COMMAND; docker container create [OPTIONS] IMAGE[:TAG]
+Creates a container from the specified image but does not start it. If the image isn't on your machine, Docker pulls it from Docker Hub by default.
+
+Start a container:
+COMMAND; docker container start CONTAINER_ID
+Starts a created container, running its entry point. Containers must be started separately after creation.
+
+List running containers:
+COMMAND; docker ps
+Shows containers that are currently running.
+
+List all containers (including stopped):
+COMMAND; docker ps --all
+Shows all containers Docker knows about, including those stopped or exited.
+
+View container logs:
+COMMAND; docker logs CONTAINER_ID
+Displays the output logs from a container, useful for troubleshooting.
+
+Start and attach terminal to container output:
+COMMAND; docker container start --attach CONTAINER_ID
+Starts the container and immediately attaches your terminal to its output, so you see logs live.
+
+Container IDs:
+Each container has a unique ID used to manage it. You can use the first few characters of the ID instead of the full one.
+
+## 2.3 Short way for a Docker container
+
+These commands help you quickly run and monitor containers, which is essential for efficient container management.
+
+COMMAND; docker run [image]
+This command creates, starts, and attaches to a container all in one step, making it faster and more convenient than doing these actions separately.
+
+COMMAND; docker ps --all
+Lists all containers, including those that have exited, so you can see the status and IDs of containers.
+
+COMMAND; docker logs [container ID]
+Shows the output logs from a container, useful for checking what happened during its run.
+
+## 2.4 Docker Container from Dockerfiles
+
+Create a Dockerfile:
+
+    Write a Dockerfile that defines your container image.
+    This includes specifying a base image with FROM,
+    copying necessary files with COPY,
+    installing dependencies with RUN, and
+    setting the default command with ENTRYPOINT or CMD.
+
+Prepare your context:
+Place your Dockerfile and any files your container needs (like scripts or app code) in a folder. This folder is called the build context.
+
+Build the Docker image:
+Run the command docker build -t your-image-name . in the folder containing your Dockerfile. The -t option tags your image with a name, and the . specifies the current directory as the context.
+
+Run a container from the image:
+Use docker run your-image-name to start a container based on your image. This creates and runs the container, executing the command specified in your Dockerfile.
+
+This process packages your app and its environment into an image, then runs it as a container, ensuring consistent behavior across systems.
+
+## 2.5 Docker Container from Dockerfiles part N. 2
+
+## 2.6 Docker Container from with Buildkit
+
+BuildKit is a newer, faster way to build container images compared to the older method. Here's a simple breakdown:
+
+BuildKit:
+Think of it as an upgraded builder that makes creating Docker images quicker and adds useful features.
+
+docker buildx build:
+This command uses BuildKit to build your image. It works like the usual docker build but with more options.
+
+--load option:
+This tells BuildKit to build the image and then load it directly into Docker on your computer, so you can use it right away.
+Builders:
+BuildKit creates special containers called builders that do the image building. These can handle building images for different computer types (like Intel or ARM) and even build remotely.
+
+Running containers from images built with BuildKit is the same as before, so you don't need to change how you run them.
+
+In short, BuildKit improves how you build Docker images, making it faster and more flexible, while keeping the way you run containers the same.
+
+## 2.7 Interact with your container
+
+## 2.8 Stopping and removing container
+
+## 2.9 Binding port to your container
+
+## 2.10 Saving data from containers
+
+## 2.11 Introducing the Docker Hub
