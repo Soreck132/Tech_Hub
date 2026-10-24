@@ -166,6 +166,127 @@ Ubuntu Desktop: ubuntu.com
 
 ## 3.1 The LINUX File System
 
+    La filosofía del estándar FHS (Filesystem Hierarchy Standard) en Linux es organizar el sistema de archivos de manera lógica y consistente para que los archivos y directorios estén en ubicaciones predecibles y uniformes en todas las distribuciones Linux. Esto facilita la administración del sistema y asegura que los programas, configuraciones y bibliotecas se encuentren siempre en lugares esperados, lo que mejora la interoperabilidad y el funcionamiento del software.
+
+    | Concepto                        | Explicación                                                                                                 |
+    | ------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+    | Raíz del sistema (/)            | Es el nivel más alto del sistema de archivos en Linux, donde comienza toda la jerarquía.                    |
+    | Directorio /home                | Contiene los archivos personales de cada usuario, con subdirectorios nombrados según el usuario.            |
+    | Directorio /etc                 | Almacena archivos de configuración para la mayoría de los programas del sistema.                            |
+    | Directorios /bin y /sbin        | Contienen programas esenciales para el funcionamiento del sistema.                                          |
+    | Directorio /lib                 | Guarda bibliotecas compartidas y módulos necesarios para el sistema y programas.                            |
+    | Directorio /root                | Es el directorio personal del usuario root, diferente de la raíz del sistema.                               |
+    | Estándar de jerarquía           | Asegura que los archivos y directorios estén en ubicaciones consistentes en distintas distribuciones Linux. |
+    | Navegación en línea de comandos | Entender estos directorios es fundamental para gestionar y desarrollar en sistemas Linux.                   |
+
+## 3.2 Understanding File Paths
+
+    Rutas absolutas:
+        Comienzan desde la raíz del sistema de archivos (/), indicando la ubicación completa de un archivo o directorio sin ambigüedad.
+
+- Ejemplo: /home/miguel/documentos se refiere a la carpeta "documentos" dentro del directorio personal de Miguel, sin importar dónde estés ubicado en el sistema.
+
+  Rutas relativas:
+  Se basan en el directorio de trabajo actual y pueden cambiar según dónde te encuentres en el sistema.
+
+- Ejemplo: Si estás en /home/miguel y quieres acceder a la carpeta "documentos", puedes usar simplemente documentos como ruta.
+
+  El carácter slash (/):
+  Se usa para separar los nombres de directorios en una ruta.
+
+- Ejemplo: En la ruta /var/log/syslog, cada slash separa los directorios "var", "log" y el archivo "syslog".
+
+  Uso de "..":
+  Permite referirse al directorio padre, facilitando moverse hacia arriba en la jerarquía.
+
+- Ejemplo: Si estás en /home/miguel/documentos y quieres ir a /home/miguel, puedes usar .. para subir un nivel, es decir, cd ...
+
+  El carácter tilde (~):
+  Representa el directorio home del usuario actual, expandiéndose a una ruta absoluta específica para cada usuario.
+
+- Ejemplo: ~/documentos es una forma rápida de referirse a la carpeta "documentos" dentro de tu directorio personal, sin importar en qué directorio estés.
+
+## 3.3 Navigating the File system
+
+    Comando cd para cambiar directorios:
+        Permite moverse entre carpetas en la terminal.
+
+- Ejemplo: cd documentos cambia al directorio "documentos" dentro del directorio actual.
+
+  Rutas relativas:
+  Se basan en el directorio actual y no comienzan con una barra (/).
+
+- Ejemplo: Si estás en tu directorio home (~), cd documentos te lleva a la carpeta "documentos" dentro de tu home.
+
+  Rutas absolutas:
+  Comienzan desde la raíz del sistema de archivos (/), indicando la ubicación completa.
+
+- Ejemplo: cd /home/miguel/documentos te lleva directamente a esa carpeta sin importar dónde estés.
+
+  Uso de ".." para subir directorios:
+  Permite subir un nivel en la jerarquía de carpetas.
+
+- Ejemplo: Si estás en /home/miguel/documentos, cd .. te lleva a /home/miguel.
+
+  Uso de "-" para volver al directorio anterior:
+  Cambia al último directorio donde estuviste.
+
+- Ejemplo: Si cambiaste de /home/miguel a /etc, cd - te regresa a /home/miguel.
+
+  Tilde (~) para el directorio home del usuario:
+  Es un atajo para referirse a tu carpeta personal.
+
+- Ejemplo: cd ~/documentos te lleva a la carpeta "documentos" dentro de tu directorio home, sin importar dónde estés.
+
+## 3.4 Finding directory and file information
+
+Comando ls para listar contenidos:
+Muestra los archivos y directorios dentro de una carpeta.
+
+- Ejemplo: ls -l muestra una lista detallada con permisos, propietario, tamaño y fecha de modificación.
+  Descripción: Te permite ver información importante para gestionar archivos y entender su estado.
+
+Tipos de archivos indicados en la primera columna:
+
+d indica un directorio.
+
+- indica un archivo regular.
+  l indica un enlace simbólico.
+
+* Ejemplo: En la salida de ls -l, un archivo con d al inicio es un directorio.
+
+Permisos de archivos:
+Muestran qué acciones pueden realizar usuarios y grupos (lectura, escritura, ejecución).
+
+- Ejemplo: -rw-r--r-- indica que el propietario puede leer y escribir, mientras que otros solo pueden leer.
+
+Colores en la salida de ls: 4
+Ayudan a identificar tipos de archivos (directorios en azul, enlaces en celeste, archivos regulares en blanco/gris).
+
+Comando file para identificar tipo de archivo:
+
+- Ejemplo: file poemas.txt indica que es un archivo de texto ASCII.
+- Descripción: Útil para saber el tipo real de un archivo cuando su extensión no es clara.
+
+Comando stat para información detallada de archivos:
+
+- Ejemplo: stat poemas.txt muestra tamaño, permisos, propietario y fechas de acceso/modificación.
+- Descripción: Proporciona detalles extendidos para administración y diagnóstico.
+
+## 3.5 Create and remove directories
+
+## 3.6 Copy, move and delete files and directories
+
+## 3.7 Find files from the command line
+
+## 3.8 Understand user role and sudo
+
+## 3.9 Understand file permission
+
+## 3.10 Modify file permissions
+
+## 3.11 Create hard and symbolic links
+
 ## 2.3 Write commnads in the SHELL at the Prompt
 
 ## 2.3 Write commnads in the SHELL at the Prompt
