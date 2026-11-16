@@ -137,45 +137,160 @@
 
     ¿Para qué sirve el git workflow?
 
-El flujo de trabajo de Git sirve para gestionar de manera organizada y segura los cambios en el código fuente. Permite que los desarrolladores trabajen localmente en sus archivos, registren cada cambio con contexto, y luego sincronizen esos cambios con el repositorio remoto para colaborar con otros. Esto asegura que el historial del proyecto esté bien documentado, facilita la colaboración en equipo y ayuda a evitar conflictos o pérdidas de información.
+        El flujo de trabajo de Git sirve para gestionar de manera organizada y segura los cambios en el código fuente. Permite que los desarrolladores trabajen localmente en sus archivos, registren cada cambio con contexto, y luego sincronizen esos cambios con el repositorio remoto para colaborar con otros. Esto asegura que el historial del proyecto esté bien documentado, facilita la colaboración en equipo y ayuda a evitar conflictos o pérdidas de información.
 
-| Comando    | Descripción                                                                                                                                      | Ejemplo      |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
-| git status | Muestra el estado actual del directorio de trabajo, indicando qué archivos están modificados, preparados o sin seguimiento, y en qué rama estás. | `git status` |
+        | Comando    | Descripción                                                                                                                                      | Ejemplo      |
+        | ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------ |
+        | git status | Muestra el estado actual del directorio de trabajo, indicando qué archivos están modificados, preparados o sin seguimiento, y en qué rama estás. | `git status` |
 
-| git add | Prepara los archivos modificados o nuevos para incluirlos en el próximo commit. Puedes agregar archivos específicos o todos con `git add .`. | `git add archivo.txt` o `git add .` |
+        | git add | Prepara los archivos modificados o nuevos para incluirlos en el próximo commit. Puedes agregar archivos específicos o todos con `git add .`. | `git add archivo.txt` o `git add .` |
 
-| git commit | Crea una instantánea de los archivos preparados, guardando los cambios con un mensaje descriptivo. | `git commit -m "Agrega función de login"` |
+        | git commit | Crea una instantánea de los archivos preparados, guardando los cambios con un mensaje descriptivo. | `git commit -m "Agrega función de login"` |
 
-| git push | Sube los commits locales al repositorio remoto en Bitbucket para compartir los cambios con el equipo. | `git push origin main` |
+        | git push | Sube los commits locales al repositorio remoto en Bitbucket para compartir los cambios con el equipo. | `git push origin main` |
 
 ## 1.6 PUSH CODE TO A REMOTE REPO
 
-    Pushing code to a remote repository means uploading the changes you've made on your local computer to the online repository in Bitbucket. This keeps your remote repo updated with your latest work so others on your team can see and collaborate on it.
+    Estado Inicial:
 
-    Here's what happens step by step:
+    Usa git status para verificar que estás en la rama correcta y que el directorio de trabajo está limpio.
 
-You make changes to files on your local system.
-You stage those changes using git add.
-You commit the changes with git commit to save a snapshot.
-You run git push to send those commits from your local repo to the remote Bitbucket repository.
+    Modificar Archivos:
 
-##### 2.0 WORKING WITH BRANCHES AND PULL REQUEST
+    Cambia archivos existentes o crea nuevos en tu directorio local.
+
+    Verificar Cambios:
+
+    Ejecuta git status para ver archivos modificados y nuevos (no rastreados).
+
+    Preparar Cambios para Commit:
+
+    Usa git add . para agregar todos los cambios al área de preparación (staging).
+
+    Confirmar Cambios:
+
+    Ejecuta git commit -m "mensaje descriptivo" para crear un commit con los cambios preparados.
+
+    Sincronizar con Repositorio Remoto:
+
+    Usa git push para subir los commits locales al repositorio remoto en Bitbucket.
+
+    Verificar en Bitbucket:
+
+    Refresca la página de commits para ver los cambios reflejados.
+    Revisa la pestaña "Source" para confirmar los archivos y mensajes de commit.
+
+## ## 2.0 WORKING WITH BRANCHES AND PULL REQUEST
 
 ## 2.1 CREATE A BRANCH
+
+    ¿Qué es una rama?
+
+    Es un puntero a un commit específico en la historia del repositorio.
+    Permite trabajar en nuevas funciones, arreglos o experimentos sin afectar la base principal.
+
+    Tipos comunes de ramas:
+
+    bugfix/: Para corregir errores específicos.
+    feature/: Para desarrollar nuevas funcionalidades.
+    hotfix/: Para solucionar problemas críticos en producción.
+    release/: Para pruebas finales antes del despliegue.
+
+    Crear una rama en Bitbucket:
+
+    Selecciona "Branches" y luego "Create branch".
+    Elige el tipo de rama para que Bitbucket añada el prefijo correcto.
+    Selecciona la rama origen (normalmente main).
+    Nombra la rama y crea.
+
+    Editar y confirmar cambios:
+
+    Edita archivos directamente en la rama.
+    Visualiza los cambios con "diff".
+    Añade un mensaje descriptivo y confirma el commit.
+
+    Beneficios:
+
+    Trabajar simultáneamente sin conflictos.
+    Mantener la base principal estable y limpia.
 
 ## 2.2 PUSH CODE TO A BRANCH
 
 ## 2.3 CREATE A PULL REQUEST
 
+    ¿Qué es un Pull Request (PR)?
+
+    Solicitud para fusionar cambios de una rama a otra (normalmente a la rama principal).
+    Facilita la colaboración y revisión del código.
+
+    Flujo de trabajo con PR:
+
+    Crear una rama para nuevas funciones o correcciones.
+    Realizar cambios y confirmar commits en la rama.
+    Crear un PR desde la rama hacia la rama principal.
+    Añadir título y descripción clara para contexto.
+    Invitar a revisores para feedback y discusión.
+    Revisar comentarios y hacer ajustes si es necesario.
+    Obtener aprobación para fusionar.
+    Fusionar la PR y actualizar la rama principal.
+    Opcional: eliminar la rama después de la fusión para mantener el repositorio limpio.
+
+    Beneficios del uso de PR:
+
+    Mejora la calidad del código mediante revisiones.
+    Facilita la colaboración y comunicación del equipo.
+    Mantiene la rama principal estable y libre de errores.
+
 ##### 3.0 WORKING WITH JIRA CLOUD
 
 ## 3.1 MANAGE PROJECTS WITH JIRA AND BITBUCKET
 
-## 3.2 CONNECT JIRA TO BITBUCKET
+    Jira y Bitbucket: Herramientas Atlassian para Desarrollo de Software
+
+    Jira: Plataforma para gestión de proyectos y seguimiento de tareas (issues, bugs, features).
+    Bitbucket: Repositorio en la nube para control de versiones con Git.
+
+    Gestión de Proyectos en Jira
+
+    Divide proyectos en unidades pequeñas llamadas issues o tareas.
+    Estados comunes: To-Do, In Progress, Done.
+    Altamente personalizable para metodologías Agile, Scrum, Kanban.
+
+    Integración con Bitbucket
+
+    Vincula tareas de Jira con ramas y commits en Bitbucket.
+    Permite automatizar actualizaciones de estado en Jira mediante pull requests.
+    Mejora la comunicación y transparencia del equipo.
+
+    Flujo de Trabajo Ejemplo
+
+    El gerente crea una tarea en Jira y la asigna a un desarrollador.
+    El desarrollador crea una rama en Bitbucket desde la tarea.
+    El estado de la tarea cambia a "In Progress" automáticamente.
+    Tras completar y probar el código, se crea un pull request.
+    El equipo revisa y aprueba los cambios.
+    La rama se fusiona y la tarea en Jira se marca como "Done" automáticamente.
 
 ## 3.3 AUTOMATE ISSUE UPDATE
 
-## 3.4 CREATE AN ISSUE AND LINK TO THE BITBUCKET BRANCH
+    Automatización en Jira:
 
-## 3.5 UPDATE AND CLOSED ISSUES FROM BITBUCKET
+    Sincroniza la gestión de proyectos con el desarrollo de código.
+    Mantiene el estado de las tareas (issues) actualizado en tiempo real.
+
+    Componentes clave:
+
+    Triggers: Eventos que activan reglas, como creación de ramas o fusión de pull requests.
+    Acciones: Cambios automáticos en el estado de los issues, como moverlos a "In Progress" o "Done".
+    Lógica: Condiciones que determinan si la regla debe continuar o no.
+
+    Reglas predefinidas:
+
+    Actualizar issue a "In Progress" al crear una rama si está en "To Do".
+    Marcar issue como "Done" al fusionar un pull request si no está ya completado.
+
+    Beneficios:
+
+    Facilita la colaboración entre desarrolladores y gestores de proyecto.
+    Asegura que el seguimiento del proyecto sea preciso y actualizado.
+    Permite que cada equipo trabaje en la herramienta que prefiera sin perder sincronización.

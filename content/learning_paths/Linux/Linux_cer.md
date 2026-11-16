@@ -275,17 +275,168 @@ Comando stat para información detallada de archivos:
 
 ## 3.5 Create and remove directories
 
+Crear directorios:
+Usa mkdir seguido del nombre del directorio para crear uno nuevo en el directorio actual.
+Crear directorios en rutas específicas:
+Especifica la ruta completa para crear directorios en ubicaciones diferentes.
+Crear múltiples directorios a la vez:
+Puedes listar varios directorios separados por espacios con mkdir para crearlos simultáneamente.
+Opción -p:
+Usa mkdir -p para crear directorios padres automáticamente si no existen.
+Eliminar directorios vacíos:
+Usa rmdir para eliminar directorios, pero solo funciona si están vacíos.
+Limitación de rmdir:
+No puede eliminar directorios que contengan archivos o subdirectorios.
+
 ## 3.6 Copy, move and delete files and directories
+
+Copiar archivos:
+Usa cp origen destino para duplicar archivos. Puedes copiar a otra carpeta o cambiar el nombre al copiar.
+Mover y renombrar archivos:
+Usa mv archivo destino para mover o renombrar archivos.
+Uso del punto (.) para representar el directorio actual en comandos.
+Comodines: \* representa cualquier cantidad de caracteres, ? representa un solo carácter. Útiles para mover o eliminar múltiples archivos.
+Eliminar archivos:
+Usa rm archivo para borrar archivos. No hay papelera, los archivos se eliminan permanentemente.
+Eliminar directorios y su contenido: Usa rm -r directorio para eliminar directorios con archivos dentro.
 
 ## 3.7 Find files from the command line
 
+Comando find:
+Se usa para buscar archivos en el sistema.
+Sintaxis básica:
+find [ruta] -name "patrón" para buscar archivos por nombre.
+Uso del punto (.) para indicar el directorio actual.
+Comodín asterisco (*):
+Representa cualquier número de caracteres en el patrón.
+Búsqueda sensible a mayúsculas/minúsculas:
+-name es sensible, -iname no lo es.
+Buscar en directorios específicos:
+Cambia la ruta para buscar en otras ubicaciones, por ejemplo, find ~/documents -name "*d\*".
+Consulta de ayuda:
+Explora las páginas man para conocer más opciones y profundizar en el uso
+
 ## 3.8 Understand user role and sudo
 
+Usuarios en Linux:
+Sistemas modernos son multiusuario; cada usuario tiene su propio directorio y permisos.
+Roles de usuario:
+Usuarios normales pueden gestionar sus archivos, pero no pueden cambiar configuraciones del sistema; el superusuario (root) tiene todos los privilegios.
+Cambio de usuario:
+Comando su [usuario] permite cambiar a otro usuario, requiere contraseña.
+Uso de sudo:
+Permite a usuarios autorizados ejecutar comandos con privilegios de root temporalmente, evitando riesgos de usar root directamente.
+Seguridad en sudo:
+Al usar sudo, se pide la contraseña del usuario y no se muestra en pantalla para protegerla.
+Indicadores visuales:
+El prompt cambia de $ a # cuando se trabaja como root para recordar el nivel de privilegio.
+Salir de root:
+Comando exit regresa al usuario normal después de usar sudo o su.
+Para acceder al administrador; tecleamos sudo -i, nos dara acceso a /var/root el cuel significa que estamos en modo administrador
+Para terminar con el modo administrador: tecleamos sudo -k y saldremos del directorio raiz.
+
 ## 3.9 Understand file permission
+
+Estructura de permisos:
+Tres secciones para usuario (propietario), grupo y otros usuarios.
+Letras de permisos:
+r (leer), w (escribir), x (ejecutar).
+Modificación de permisos:
+Comando chmod con dos notaciones:
+Octal (números, por ejemplo, 777, 644) asigna permisos sumando valores (4=leer, 2=escribir, 1=ejecutar).
+Simbólica (letras y operadores, por ejemplo, u+rwx, g=r, o-rwx) para añadir, quitar o asignar permisos.
+
+Cambio de propietario y grupo:  
+ Comandos chown y chgrp.
+Permisos claros y sin ambigüedad:
+Uso de números y símbolos para definir exactamente quién puede hacer qué.
 
 ## 3.10 Modify file permissions
 
 ## 3.11 Create hard and symbolic links
+
+¿Qué es un enlace en Linux?
+
+Archivo que apunta a otro archivo para evitar duplicados.
+
+Tipos de enlaces:
+
+Enlace simbólico (soft link o symlink):
+
+Apunta a la ruta del archivo original.
+Se crea con ln -s <archivo_origen> <nombre_enlace>.
+Puede romperse si se mueve el archivo original o el enlace (si es relativo).
+Puede usar rutas absolutas para evitar romperse al mover el enlace.
+
+Enlace duro (hard link):
+
+Apunta directamente a los datos en disco.
+Se crea con ln <archivo_origen> <nombre_enlace> (sin -s).
+No se rompe si se mueve el archivo original.
+Aparece como un archivo normal, compartiendo el mismo contenido.
+El número de enlaces se refleja en la lista de archivos.
+
+Usos y consideraciones:
+
+Los enlaces evitan duplicar archivos, ahorrando espacio.
+Editar un enlace modifica el archivo original.
+Enlaces simbólicos son más flexibles pero pueden romperse.
+Enlaces duros son más robustos pero no pueden enlazar directorios ni archivos en diferentes sistemas de archivos.
+
+## ## 4.0 COMMON COMMAND-LINE TASKS AND TOOLS
+
+## 4.1 THE IMPORTANCE OF MODULARITY
+
+Principio de Modularity:
+
+Cada herramienta hace una sola tarea y la hace bien.
+Herramientas diseñadas para operar con texto como entrada y salida.
+
+Ventajas de la modularidad:
+
+Permite combinar herramientas especializadas para tareas complejas.
+Facilita la flexibilidad y reutilización de comandos.
+
+Analogía:
+
+No es una navaja suiza multifuncional, sino una cocina con herramientas especializadas.
+Cada herramienta es como un utensilio de chef que cumple una función específica.
+
+Ejemplo de uso:
+
+Leer texto de un archivo → filtrar texto → eliminar líneas duplicadas → guardar resultado.
+
+## 4.2 USE PIPES TO CONNECT COMMANDS TOGETHER
+
+¿Qué es un pipe?
+
+Conecta la salida de un comando con la entrada de otro.
+Permite procesar datos paso a paso de forma modular.
+
+Símbolo del pipe:
+
+Representado por el carácter vertical |.
+Usualmente se encuentra como Shift + tecla de barra invertida (\) en teclados US.
+
+Ejemplo práctico:
+
+echo "hello" | wc
+echo envía texto; wc cuenta líneas, palabras y caracteres.
+
+Concepto de pipeline:
+
+Cadena de comandos conectados por pipes.
+Facilita transformar datos en varias etapas.
+
+## 4.3 VIEW TEXT FILES WITH CAT, HEAD, TAIL AND LESS
+
+## 4.4 SEARCH FOR TEXT IN FILES AND STREAMS
+
+## 4.5 MANIPULATE TEXT WITH AWK, SED, AND SORT
+
+## 4.6 SEARCH FOR TEXT IN FILES AND STREAMS WITH GREP
+
+## 4.7
 
 ## 2.3 Write commnads in the SHELL at the Prompt
 
