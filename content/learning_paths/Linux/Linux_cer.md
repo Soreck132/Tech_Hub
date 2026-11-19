@@ -430,14 +430,277 @@ Facilita transformar datos en varias etapas.
 
 ## 4.3 VIEW TEXT FILES WITH CAT, HEAD, TAIL AND LESS
 
+cat (concatenate)
+
+Muestra el contenido completo de un archivo en pantalla.
+Útil para combinar archivos o pasar contenido a otros comandos mediante pipes.
+Opción -n añade números de línea al mostrar el contenido.
+
+head y tail
+
+head: muestra las primeras líneas de un archivo (por defecto 10 líneas).
+tail: muestra las últimas líneas de un archivo (por defecto 10 líneas).
+Opción -n permite especificar el número exacto de líneas a mostrar.
+
+Uso de pipes (|)
+
+Permite conectar la salida de un comando como entrada de otro.
+El orden de los comandos en la tubería afecta el resultado final.
+Ejemplo: cat -n archivo.txt | tail -n5 numera todas las líneas y luego muestra las últimas 5.
+
+less
+
+Presenta el contenido de un archivo página por página.
+Permite navegar con teclas (flechas, espacio, F para adelante, B para atrás).
+Se puede usar con archivos directamente o con salida de otros comandos mediante pipes.
+Se sale con la tecla Q.
+
 ## 4.4 SEARCH FOR TEXT IN FILES AND STREAMS
+
+Función básica:
+
+Busca y muestra líneas que coinciden con un patrón.
+Sintaxis: grep "patrón" archivo.txt
+
+Opciones importantes:
+
+-n: Muestra número de línea junto con la línea coincidente.
+-i: Búsqueda insensible a mayúsculas/minúsculas.
+-v: Muestra líneas que NO coinciden con el patrón (inverso).
+-E: Permite usar expresiones regulares extendidas (regex).
+
+Ejemplos de uso:
+
+Buscar texto exacto: grep "the" poemas.txt
+Buscar sin importar mayúsculas: grep -i "the" poemas.txt
+Excluir líneas con texto: grep -vi "the" poemas.txt
+Buscar letras específicas con regex: grep -E "[hijk]" poemas.txt
+Buscar palabras con 6 o más caracteres: grep -E "\w{6,}" poemas.txt
+
+Notas:
+
+grep es sensible a mayúsculas por defecto.
+Las expresiones regulares permiten búsquedas avanzadas y flexibles.
+grep es una herramienta poderosa para analizar logs y archivos de texto.
 
 ## 4.5 MANIPULATE TEXT WITH AWK, SED, AND SORT
 
-## 4.6 SEARCH FOR TEXT IN FILES AND STREAMS WITH GREP
+Manipulación de Texto en Linux con awk, sed y sort
 
-## 4.7
+awk
 
-## 2.3 Write commnads in the SHELL at the Prompt
+Extrae datos de archivos según reglas definidas.
+Sintaxis básica: awk '{print $2}' archivo.txt muestra la segunda columna.
+Permite combinar y presentar columnas con tabulaciones.
+Útil para scripts y procesamiento de datos.
 
-## 2.3 Write commnads in the SHELL at the Prompt
+sed (stream editor)
+
+Modifica texto en flujo o archivos directamente.
+Sintaxis para sustitución: sed s/TextoAntiguo/TextoNuevo/g archivo.txt
+La opción g reemplaza todas las ocurrencias en cada línea.
+
+sort
+
+Ordena líneas de texto.
+Ejemplo: sort -k2 -n archivo.txt ordena por la segunda columna numéricamente.
+Opción -u muestra solo líneas únicas, útil para filtrar duplicados.
+
+Otros comandos útiles
+
+rev: invierte caracteres en cada línea.
+tac: muestra líneas en orden inverso.
+tr: traduce o elimina caracteres específicos.
+
+## 4.6 EDITH TEXT WITH VIM
+
+Editor Vim: Conceptos Básicos
+
+Modos de Vim
+
+Modo Inserción: para escribir y editar texto (se activa con i, I, o).
+Modo Comando: para navegar, manipular texto y emitir comandos (se activa con Esc).
+
+Navegación en Modo Comando
+
+h: mover cursor a la izquierda
+l: mover cursor a la derecha
+j: mover cursor hacia abajo
+k: mover cursor hacia arriba
+Shift+G: ir al final del archivo
+1G: ir al inicio del archivo
+
+Comandos para Insertar Texto
+
+i: insertar antes del cursor
+I: insertar al inicio de la línea
+o: abrir nueva línea después de la actual
+
+Guardar y Salir
+
+:w nombre_archivo: guardar archivo
+:wq: guardar y salir
+:q!: salir sin guardar
+
+Consejo Importante
+
+Para salir sin guardar y evitar quedarse atrapado, usar Esc + :q!
+
+## 4.7 EDITH TEXT WITH NANO
+
+Editor Nano: Uso Básico en Linux
+
+Inicio y apertura
+
+Comando para abrir Nano: nano
+Para editar un archivo existente: nano nombre_archivo
+
+Navegación en el buffer (área de texto)
+
+Flechas para moverse por el texto
+Atajos útiles:
+Ctrl + A: ir al inicio de la línea
+Ctrl + E: ir al final de la línea
+
+Edición de texto
+
+Cortar línea: Ctrl + K
+Pegar línea cortada: Ctrl + U
+
+Guardar y salir
+
+Guardar archivo: Ctrl + O, luego ingresar nombre y Enter
+Salir de Nano: Ctrl + X
+Si hay cambios sin guardar, Nano pregunta para guardar antes de salir
+
+Búsqueda de texto
+
+Buscar palabra o texto: Ctrl + W, escribir término y Enter
+Repetir búsqueda: Ctrl + W + Enter
+
+Desplazamiento rápido
+
+Ctrl + V: avanzar una pantalla
+Ctrl + Y: retroceder una pantalla
+
+Consejos importantes
+
+Nano es más sencillo que Vim, con comandos visibles en pantalla
+Conocer Nano y Vim aumenta tu flexibilidad y eficiencia en Linux
+
+## 4.8 WORKING WITH ZIP ARCHIVE
+
+Key Points on Linux Archive Files from the Video:
+
+Tar Files (Tape Archive):
+
+Combine multiple files into one large file for easier storage and sharing.
+Commonly used in Linux; may or may not include compression.
+Compression types include gzip (.tar.gz, .tgz) and bzip2 (.tar.bz2).
+
+Creating Tar Archives:
+
+tar -cvf filename.tar directory/ creates an archive.
+Options: c (create), v (verbose), f (file output).
+Compression can be added with a (auto) or z (gzip).
+
+Extracting Tar Archives:
+
+Use tar -xf filename.tar to extract.
+Extract into a specific directory with -C directory option.
+
+Zip Files:
+
+Widely used and cross-platform (Linux, Windows, macOS).
+Create with zip -r archive.zip directory/ (recursive to include contents).
+Extract with unzip archive.zip.
+Extract to a specific directory with unzip archive.zip -d directory.
+
+Best Practices:
+
+Extract archives in new directories to avoid clutter.
+Understand compression trade-offs: gzip is faster, bzip2 offers better compression but slower.
+
+## 4.9 OUTPUT REDIRECTION
+
+Conceptos Básicos de Flujos en Linux:
+
+Entrada estándar (stdin, descriptor 0): Texto que entra al shell o programa, usualmente desde el teclado.
+Salida estándar (stdout, descriptor 1): Resultado de comandos que normalmente se muestra en pantalla.
+Error estándar (stderr, descriptor 2): Mensajes de error que aparecen cuando un comando falla.
+
+Redirección de Salida:
+
+Usar > para enviar la salida estándar a un archivo, reemplazando su contenido.
+Usar 1> es equivalente a > para redirigir la salida estándar.
+Usar >> para añadir (append) la salida al final de un archivo sin borrar su contenido.
+
+Redirección de Errores:
+
+Usar 2> para enviar mensajes de error a un archivo.
+Se pueden redirigir salida y error a archivos diferentes o al mismo archivo combinando redirecciones.
+
+Precauciones:
+
+Redirigir con un solo > sobreescribe el archivo, lo que puede borrar datos importantes.
+
+## 4.10 EXPLORING ENVIRONMENTS VARIABLES AND PATH
+
+Variables de Entorno y PATH:
+
+Las variables de entorno controlan opciones y comportamientos del shell.
+PATH es una variable que contiene una lista de directorios donde el shell busca programas ejecutables.
+
+Visualización y Uso:
+
+El comando env muestra todas las variables de entorno.
+echo $PATH muestra específicamente el contenido de PATH.
+El comando which <comando> indica la ubicación real de un programa en el sistema.
+
+Importancia de PATH:
+
+Permite ejecutar comandos sin escribir la ruta completa.
+Facilita el uso de programas instalados en directorios estándar.
+
+Modificar PATH:
+
+Se puede agregar directorios personalizados editando el archivo oculto .bash_profile en el directorio home.
+Se usa nano ~/.bash_profile para crear o modificar este archivo.
+La sintaxis para agregar rutas es: PATH="$PATH:/ruta/nueva".
+Después de modificar, se debe cerrar y reabrir el shell para aplicar cambios.
+
+## ## 5.0 ADVANCE TOPICS
+
+## 5.1 FIND SYSTEM HARDWARE AND DISK INFORMATION
+
+    1. Memoria del Sistema:
+
+    Comando: free -h
+    Muestra la memoria total, usada y disponible en formato legible.
+
+    2. Información del Procesador:
+
+    Comando: lscpu o cat /proc/cpuinfo
+    Detalla modelo, arquitectura y características del CPU.
+
+    3. Espacio en Disco:
+
+    Comando: df -h para ver uso y espacio libre en discos montados.
+    Para un disco específico: df -h /
+
+    4. Uso de Disco por Directorios:
+
+    Comando: sudo du -hd1 /
+    Muestra tamaño ocupado por directorios a un nivel de profundidad.
+
+    5. Información de Hardware:
+
+    Comando: lshw para listado detallado de hardware.
+    Comandos: lspci y lsusb para dispositivos PCI y USB.
+
+    6. Dirección de Red:
+
+    Comando: ip a
+    Muestra direcciones IP y estado de adaptadores de red.
+
+    Consejo: Usa sudo cuando sea necesario para permisos elevados.

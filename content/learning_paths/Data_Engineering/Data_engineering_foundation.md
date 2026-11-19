@@ -58,7 +58,7 @@
 
     Asegura que las tareas se ejecuten en el orden correcto para mantener la calidad y consistencia de los datos.
 
-##### 2.0 INSTRUCTION TO DATA ENGINEERING
+## ## 2.0 INSTRUCTION TO DATA ENGINEERING
 
 ## 2.1 INTRODUCTION TO DATABASES AND THEIR TYPES
 
@@ -223,3 +223,32 @@
 
     Iniciar cluster Spark → Ingesta datos atletas y sedes → Enriquecer datos combinando tablas.
     Tareas se conectan con dependencias usando funciones como set_downstream.
+
+## ## 4.0 ETL PIPELINES
+
+## 4.1 SOURCE OF DATA EXTRACTION
+
+    Extracción de Datos en ETL: Puntos Clave
+
+    ¿Qué es la extracción de datos?
+
+    Proceso de mover datos desde almacenamiento persistente a memoria.
+    Fuentes comunes: archivos, bases de datos, APIs web.
+
+    Tipos de archivos para extracción:
+
+    Archivos de texto plano: legibles por humanos, pueden ser no estructurados (ej. artículos) o archivos planos/tabulares.
+    Archivos planos/tabulares: CSV (separado por comas), TSV (separado por tabulaciones).
+    JSON: formato semi-estructurado, con tipos atómicos (número, cadena, booleano, null) y compuestos (array, objeto).
+    JSON es común en APIs web para intercambio de datos.
+
+    Extracción desde APIs:
+
+    APIs proporcionan datos estructurados, comúnmente en JSON.
+    Uso de métodos como .get para solicitar datos y .json para convertir la respuesta a objetos Python.
+
+    Extracción desde bases de datos:
+
+    Aplicaciones usan bases de datos para persistencia.
+    Diferencia entre bases de datos OLTP (orientadas a transacciones, filas) y OLAP (orientadas a análisis, columnas).
+    Optimización según tipo: OLTP para muchas transacciones, OLAP para consultas analíticas.
